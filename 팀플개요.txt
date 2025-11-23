@@ -1,0 +1,69 @@
+1) Exploring Housing Market Dynamics with Redfin Data
+
+Redfin 데이터를 활용한 주택 시장 동학 탐색
+
+Goal:
+주택 특성이 가격에 어떻게 영향을 미치는지를 설명하는 것이 목표이며, 정확한 거래가격을 예측하는 것이 목적은 아니다.
+주택 가격에 가장 영향을 미치는 요인(크기, 위치, 건축연도)을 이해한다.
+선택한 도시들 간 시장 특성을 비교한다.
+데이터 시각화와 회귀 해석을 통해 명확하게 결과를 전달한다.
+
+Core Questions:
+어떤 요인들(크기, 위치, 건축연도)이 가격을 가장 많이 움직이는가?
+카운티 간 가격은 어떻게 다른가? 2~3개 도시를 선택할 것인가? 그 이유는?
+정확하게 주택 가격을 예측하는 모델을 구축할 수 있는가?
+
+2) Steps
+
+Step 1. Data Import & Cleaning – Pandas, NumPy
+1단계. 데이터 불러오기 및 정제 – Pandas, NumPy 사용
+
+Step 2. Exploratory Data Analysis (EDA) – Visualization with Matplotlib
+2단계. 탐색적 데이터 분석 – Matplotlib을 이용한 시각화
+
+Step 3. Modeling – Linear Regression (Scikit-learn)
+3단계. 모델링 – 선형 회귀(Scikit-learn)
+
+Step 4. Communication – Final report & presentation (Jupyter/Colab + PPT)
+4단계. 커뮤니케이션 – 최종 보고서 및 프레젠테이션(Jupyter/Colab + PPT)
+
+도시나 지역을 하나 선택한다(예: 시애틀, 오스틴, 보스턴).
+Redfin 검색 페이지로 이동한다 → 아래로 스크롤한다 → ‘Download Data’를 클릭한다.
+CSV 파일을 저장한 뒤 pandas.read_csv()를 사용하여 파이썬에 불러온다.
+팀마다 다양성을 위해 서로 다른 도시를 선택해야 한다.
+
+이 변수들은 탐색 분석과 회귀 분석의 기초가 될 것이다.
+PRICE: 매물 가격($)
+BEDS: 침실 수
+BATHS: 욕실 수
+SQUARE FEET: 부동산 면적
+DAYS ON MARKET: 시장에 머문 기간
+YEAR BUILT: 건축 연도
+CITY: 위치
+기타 등등.
+
+주택 시장에 대한 데이터 기반 인사이트
+주택 가격을 예측하는 회귀 모델
+전체 데이터 사이언스 워크플로우에서의 팀 협업
+실제 데이터를 정제하고, 시각화하고, 모델링하고, 스토리텔링하는 실무적 기술
+
+Jupyter Notebook(.ipynb):
+Redfin CSV 데이터를 불러온다
+기본 시각화를 만든다(가격 히스토그램, 산점도 등)
+잠재적 연구 질문들을 요약하는 짧은 단락을 작성한다.
+선형 회귀 및 해석
+PPT 슬라이드와 보고서
+
+예측이 아니라 설명에 집중한다
+각 팀은 서로 다른 도시를 선택한다
+크기, 연식, 위치가 가격에 어떻게 영향을 미치는지 탐색한다
+EDA를 사용해 명확한 데이터 스토리를 만든다
+
+회귀 분석을 위해 정제된 데이터를 준비한다.
+
+
+
+
+
+
+
