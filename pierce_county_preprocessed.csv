@@ -1,0 +1,165 @@
+PROPERTY TYPE,ADDRESS,CITY,PRICE,BEDS,BATHS,LOCATION,SQUARE FEET,LOT SIZE,YEAR BUILT,DAYS ON MARKET,$/SQUARE FEET
+Single Family Residential,5702 N 39th St,Tacoma,570000.0,3.0,2.0,Tacoma,1282.0,8080.0,1981.0,2.0,445.0
+Single Family Residential,16428 80th Ave E,Puyallup,574995.0,4.0,2.5,South Hill,2120.0,3778.0,2014.0,2.0,271.0
+Single Family Residential,869 Wheeler St S,Tacoma,425000.0,3.0,2.0,Tacoma,1352.0,6300.0,1940.0,3.0,314.0
+Single Family Residential,3626 E Howe St,Tacoma,625000.0,5.0,3.0,East Tacoma,2650.0,5227.0,2023.0,5.0,236.0
+Single Family Residential,4819 96th Ave W,University Place,777000.0,4.0,3.0,Beckonridge,2352.0,7462.0,1974.0,6.0,330.0
+Single Family Residential,1108 206th St E,Spanaway,473000.0,3.0,2.0,Spanaway,1474.0,5282.0,2014.0,9.0,321.0
+Single Family Residential,7207 147th Street Ct E,Puyallup,565000.0,3.0,2.5,South Hill,2186.0,12501.0,1984.0,10.0,258.0
+Single Family Residential,13426 183rd St E,Puyallup,699900.0,4.0,2.5,Sunrise,2534.0,5533.0,2023.0,16.0,276.0
+Single Family Residential,6323 119th St E,Puyallup,565000.0,3.0,2.5,Puyallup,1930.0,5585.0,2001.0,17.0,293.0
+Single Family Residential,12505 223rd Ave E,Bonney Lake,495000.0,3.0,2.0,Prairie Ridge,1400.0,9800.0,2015.0,1.0,354.0
+Single Family Residential,20408 97th Ave E #2,Graham,599990.0,3.0,2.5,Bethel,2080.0,4103.0,2025.0,1.0,288.0
+Condo/Co-op,6910 38th Street Ct W,University Place,699995.0,3.0,2.0,University Place,1997.0,7577.0,1999.0,1.0,351.0
+Single Family Residential,215 James St S,Roy,450000.0,3.0,2.0,Roy,1194.0,7200.0,2003.0,1.0,377.0
+Single Family Residential,4909 S Mullen St,Tacoma,519000.0,3.0,2.5,Manitou,1597.0,4792.0,2000.0,1.0,325.0
+Single Family Residential,10415 Whitman Ave SW,Lakewood,548500.0,3.0,2.5,Lakewood,2024.0,5019.0,2000.0,2.0,271.0
+Single Family Residential,10509 202nd Ave E,Bonney Lake,500000.0,3.0,2.0,Ponderosa,1611.0,8250.0,1993.0,2.0,310.0
+Single Family Residential,1315 S L St,Tacoma,675000.0,5.0,3.0,Hilltop,2804.0,4874.0,1921.0,2.0,241.0
+Single Family Residential,19432 116th St E,Bonney Lake,999950.0,4.0,3.0,Bonney Lake,3006.0,6395.0,2026.0,2.0,333.0
+Single Family Residential,1008 127th Street Ct E,Tacoma,424990.0,3.0,2.5,Parkland,1364.0,6734.0,2001.0,2.0,312.0
+Townhouse,2753 Diamond Loop Unit 9B,Milton,479999.0,2.0,2.5,Milton,1379.0,4705.0,2001.0,2.0,348.0
+Single Family Residential,214 Cedar St E,Roy,430000.0,3.0,2.0,Bethel,1357.0,8192.0,2007.0,2.0,317.0
+Single Family Residential,1519 N Alder St,Tacoma,850000.0,4.0,3.0,North Tacoma,2222.0,4000.0,1916.0,2.0,383.0
+Single Family Residential,5314 N 39th St,Tacoma,499950.0,3.0,1.5,North Tacoma,1680.0,6534.0,1964.0,2.0,298.0
+Condo/Co-op,5002 S 30th St Unit B3,Tacoma,300000.0,2.0,1.5,Fircrest,1034.0,1698.0,2004.0,2.0,290.0
+Single Family Residential,7306 139th Street Ct E,Puyallup,599950.0,4.0,2.5,Puyallup,2020.0,14595.0,1985.0,2.0,297.0
+Single Family Residential,507 Cope St SW,Orting,675000.0,4.0,2.5,Orting,2978.0,7260.0,2021.0,2.0,227.0
+Single Family Residential,20532 165th St E,Bonney Lake,937995.0,5.0,3.0,Tehaleh,3115.0,6566.0,2026.0,2.0,301.0
+Single Family Residential,1609 200th Street Ct E,Spanaway,510000.0,4.0,2.5,Spanaway,2175.0,4254.0,2000.0,2.0,234.0
+Single Family Residential,625 173rd St S,Spanaway,614999.0,3.0,2.0,Lake Park,2164.0,10500.0,1942.0,2.0,284.0
+Single Family Residential,13807 63rd Ave E,Puyallup,600000.0,3.0,2.5,Puyallup,2225.0,5814.0,2016.0,2.0,270.0
+Single Family Residential,9506 150th Street Ct E,Puyallup,549000.0,3.0,2.5,South Hill,2064.0,7093.0,2002.0,2.0,266.0
+Single Family Residential,709 S Cedar St,Tacoma,799950.0,5.0,2.5,Central Tacoma,2756.0,3000.0,1910.0,2.0,290.0
+Single Family Residential,7205 Perry Ave SE,Auburn,774950.0,4.0,3.0,Lakeland,2858.0,5122.0,2007.0,2.0,271.0
+Single Family Residential,1901 S 18th St,Tacoma,460000.0,3.0,2.0,Central Tacoma,1152.0,12562.0,1948.0,2.0,399.0
+Mobile/Manufactured Home,10018 Selma Cir,Anderson Island,300000.0,2.0,2.0,Anderson Island,1109.0,8750.0,2000.0,2.0,271.0
+Single Family Residential,11117 Minterwood Dr NW,Gig Harbor,640000.0,3.0,2.0,Minter,2048.0,16875.0,1997.0,2.0,313.0
+Single Family Residential,14528 203rd Ave E #846,Bonney Lake,874990.0,4.0,3.0,Tehaleh,2810.0,4639.0,2025.0,2.0,311.0
+Mobile/Manufactured Home,13405 Cedar Ct E,Bonney Lake,210000.0,3.0,1.5,Prairie Ridge,1152.0,12070.0,1974.0,2.0,182.0
+Single Family Residential,20402 11th Avenue Ct E,Spanaway,450000.0,4.0,2.5,Spanaway,1738.0,6871.0,2011.0,2.0,259.0
+Single Family Residential,11821 74th Ave East,Puyallup,499950.0,2.0,2.0,Puyallup,1680.0,19804.0,1972.0,2.0,298.0
+Single Family Residential,437 20th St NW,Puyallup,619900.0,4.0,2.5,Puyallup,2360.0,8000.0,2010.0,2.0,263.0
+Single Family Residential,14120 State Route 165 E,Buckley,435000.0,2.0,1.5,Burnett,3474.0,7268.0,1913.0,2.0,125.0
+Single Family Residential,931 York St,Buckley,659950.0,4.0,2.5,Buckley,2404.0,6720.0,2023.0,2.0,275.0
+Single Family Residential,605 Louviers Ave,Dupont,699500.0,5.0,3.0,Dupont,2850.0,8145.0,1962.0,2.0,245.0
+Single Family Residential,5402 Yakima Ave,Tacoma,499000.0,4.0,2.5,South Tacoma,1696.0,5850.0,1976.0,2.0,294.0
+Single Family Residential,602 8th St NW,Puyallup,560000.0,3.0,2.0,Downtown,1822.0,6840.0,1915.0,2.0,307.0
+Single Family Residential,15362 200th Ave E,Bonney Lake,730000.0,5.0,3.0,Bonney Lake,3100.0,5903.0,2021.0,2.0,235.0
+Single Family Residential,825 E 55TH,Tacoma,520000.0,3.0,2.5,Se Tacoma,1356.0,3000.0,2023.0,2.0,383.0
+Single Family Residential,580 Eatonville Hwy W,Eatonville,595000.0,3.0,2.0,Eatonville,1915.0,15225.0,2016.0,2.0,311.0
+Single Family Residential,10707 8th Ave Ct S,Tacoma,531000.0,3.0,2.5,Parkland,1494.0,3625.0,2025.0,2.0,355.0
+Single Family Residential,1535 55th Ct SE,Auburn,635000.0,4.0,2.5,Lakeland,1990.0,7861.0,1995.0,2.0,319.0
+Single Family Residential,9938 257th Street Ct E,Graham,795000.0,3.0,3.0,Graham,3700.0,13500.0,1998.0,2.0,215.0
+Single Family Residential,3014 S Warner St,Tacoma,499000.0,3.0,2.5,South Tacoma,1577.0,5663.0,2003.0,3.0,316.0
+Single Family Residential,613 E 57th St,Tacoma,415000.0,4.0,2.0,Se Tacoma,1488.0,6250.0,1950.0,3.0,279.0
+Single Family Residential,15715 44th Avenue Ct E,Tacoma,549999.0,3.0,2.5,Brookdale,1540.0,20518.0,1996.0,3.0,357.0
+Condo/Co-op,8113 Custer Rd SW Unit E-5,Lakewood,337500.0,2.0,2.0,Lakewood,1023.0,3502.0,2006.0,3.0,330.0
+Single Family Residential,1907 12th Ave,Milton,575000.0,3.0,2.0,Milton Heights,1453.0,13500.0,1958.0,3.0,396.0
+Mobile/Manufactured Home,9208 147th Street Ct NW,Gig Harbor,399950.0,3.0,2.0,Gig Harbor,1056.0,8050.0,1976.0,3.0,379.0
+Single Family Residential,12819 171St Street Ct E,Puyallup,539950.0,3.0,2.5,Sunrise,1700.0,7020.0,1999.0,3.0,318.0
+Single Family Residential,1128 123rd Street Ct E,Tacoma,499950.0,3.0,2.0,Midland,1471.0,9617.0,1998.0,3.0,340.0
+Single Family Residential,2106 187th Street Ct E,Spanaway,599000.0,5.0,2.5,Spanaway,3015.0,5496.0,2012.0,3.0,199.0
+Mobile/Manufactured Home,11918 240th Avenue Ct E,Buckley,425000.0,3.0,2.0,Buckley,1416.0,10999.0,1986.0,3.0,300.0
+Condo/Co-op,1515 104th St E,Tacoma,245000.0,2.0,1.5,Parkland,1008.0,2029.0,1997.0,3.0,243.0
+Single Family Residential,19111 19th St SW,Lakebay,250000.0,2.0,1.5,Lakebay,672.0,10710.0,1976.0,3.0,372.0
+Single Family Residential,15209 25th Ave E,Tacoma,485000.0,4.0,2.0,Brookdale,1360.0,6958.0,1970.0,3.0,357.0
+Single Family Residential,19805 13th Avenue Ct E,Spanaway,445000.0,3.0,2.0,Bethel,1244.0,9251.0,1996.0,3.0,358.0
+Single Family Residential,249 S Elsa St,Buckley,495950.0,3.0,2.5,In Town - Buckley,2116.0,8968.0,1994.0,3.0,234.0
+Single Family Residential,3717 N Verde St,Tacoma,624500.0,3.0,2.0,Tacoma,1698.0,3500.0,1928.0,3.0,368.0
+Single Family Residential,1515 S Washington St,Tacoma,649000.0,4.0,3.0,Central Tacoma,2156.0,5195.0,2018.0,3.0,301.0
+Single Family Residential,10957 188th St E,Puyallup,490000.0,3.0,2.5,Lipoma Firs,1577.0,2562.0,2022.0,3.0,311.0
+Single Family Residential,8129 152nd Street Ct E,Puyallup,615000.0,4.0,2.5,Puyallup,2578.0,4475.0,2014.0,3.0,239.0
+Mobile/Manufactured Home,16708 27th Street Ct E,Lake Tapps,439900.0,3.0,2.0,Dieringer,1188.0,15036.0,1986.0,3.0,370.0
+Single Family Residential,611 184th Street Ct E #48,Spanaway,499950.0,3.0,2.5,Spanaway,1870.0,4000.0,2026.0,3.0,267.0
+Single Family Residential,703 184th Street Ct E #47,Spanaway,589950.0,4.0,2.5,Spanaway,2755.0,4000.0,2026.0,3.0,214.0
+Single Family Residential,749 S Davis St #104,Buckley,674990.0,3.0,2.0,Buckley,1950.0,6000.0,2025.0,3.0,346.0
+Single Family Residential,15306 106th Ave E,Puyallup,759950.0,4.0,3.0,Puyallup,2394.0,6600.0,2025.0,3.0,317.0
+Single Family Residential,22609 41st Avenue Ct E,Spanaway,499950.0,3.0,2.0,Spanaway,1402.0,12681.0,1981.0,3.0,357.0
+Single Family Residential,11422 184th Street Ct E,Puyallup,549998.0,4.0,2.5,Lipoma Firs,1984.0,4818.0,2006.0,3.0,277.0
+Condo/Co-op,2440 S Steele St #211,Tacoma,499950.0,3.0,2.0,Central Tacoma,1565.0,1334.0,2004.0,3.0,319.0
+Single Family Residential,4121 52nd St NE,Tacoma,775000.0,4.0,2.5,Browns Point,2249.0,11569.0,1994.0,3.0,345.0
+Single Family Residential,18436 Village Pkwy E,Bonney Lake,629950.0,3.0,2.5,Tehaleh,2162.0,5000.0,2015.0,3.0,291.0
+Single Family Residential,12902 194th Avenue Ct E,Bonney Lake,925000.0,5.0,3.0,Cedar Ridge,3311.0,12457.0,2006.0,3.0,279.0
+Single Family Residential,15321 77th Avenue Ct E,Puyallup,529950.0,5.0,3.0,Puyallup,1872.0,7301.0,1996.0,3.0,283.0
+Single Family Residential,1517 126th Ave E,Edgewood,750000.0,4.0,3.0,Edgewood,3656.0,16117.0,1971.0,3.0,205.0
+Mobile/Manufactured Home,11401 202nd Ave E,Bonney Lake,390000.0,3.0,2.0,Rhododendron,960.0,9070.0,1982.0,3.0,406.0
+Single Family Residential,15520 85th Ave E,Puyallup,550000.0,4.0,2.5,Puyallup,2094.0,5283.0,2007.0,3.0,263.0
+Single Family Residential,5318 Galleon Dr NE,Tacoma,690000.0,4.0,2.5,Harbor Ridge,2412.0,10330.0,1990.0,3.0,286.0
+Mobile/Manufactured Home,9821 Dechaux Rd E,Edgewood,629999.0,3.0,1.5,Edgewood,1708.0,19602.0,1992.0,3.0,369.0
+Single Family Residential,723 S Davis St #103,Buckley,749990.0,4.0,2.5,Buckley,2704.0,6013.0,2025.0,3.0,277.0
+Mobile/Manufactured Home,14306 Greenbelt Dr E,Bonney Lake,450000.0,3.0,2.0,Prairie Ridge,1650.0,8470.0,1997.0,3.0,273.0
+Single Family Residential,1028 N Oakes St,Tacoma,688800.0,4.0,2.0,North Tacoma,2470.0,5000.0,1922.0,3.0,279.0
+Mobile/Manufactured Home,20001 69th Avenue Ct E,Spanaway,449450.0,3.0,2.0,Spanaway,1387.0,8736.0,2025.0,4.0,324.0
+Single Family Residential,17821 24th Avenue Ct E,Tacoma,499950.0,3.0,2.5,Bethel,1822.0,5789.0,2003.0,4.0,274.0
+Single Family Residential,13308 108th Ave E,Puyallup,585000.0,4.0,2.5,South Hill,2189.0,4792.0,2001.0,4.0,267.0
+Townhouse,18219 58th Street Ct E,Lake Tapps,514950.0,3.0,3.0,Lake Tapps,2072.0,12213.0,2001.0,4.0,249.0
+Single Family Residential,18945 112th Avenue Ct E,Puyallup,559000.0,4.0,2.5,Lipoma Firs,2224.0,4635.0,2019.0,4.0,251.0
+Single Family Residential,3627 180 St E,Tacoma,529000.0,3.0,2.5,Frederickson,1560.0,6875.0,2002.0,4.0,339.0
+Single Family Residential,5301 138th St E,Tacoma,479900.0,3.0,2.0,Tacoma,1604.0,12600.0,1960.0,4.0,299.0
+Condo/Co-op,10007 186th St E #234,Puyallup,320000.0,2.0,2.0,Puyallup,1019.0,2518.0,2004.0,4.0,314.0
+Single Family Residential,8902 45th St W,Tacoma,735000.0,3.0,2.5,University Place,1674.0,8603.0,1974.0,4.0,439.0
+Single Family Residential,914 Alameda Ave,Fircrest,687500.0,5.0,2.5,Fircrest,3357.0,8850.0,1959.0,4.0,205.0
+Single Family Residential,3320 N Whitman St,Tacoma,675000.0,3.0,3.0,North Tacoma,1736.0,7793.0,1975.0,4.0,389.0
+Single Family Residential,5509 204th Street Ct E,Spanaway,450000.0,3.0,2.0,Bethel,1226.0,11872.0,1989.0,4.0,367.0
+Townhouse,1209 E 53rd St,Tacoma,399900.0,3.0,2.0,Swan Creek,1190.0,2172.0,2024.0,4.0,336.0
+Mobile/Manufactured Home,19907 68th Ave E,Spanaway,410000.0,3.0,2.0,Frederickson,1292.0,8450.0,1980.0,4.0,317.0
+Single Family Residential,21502 148th St E,Bonney Lake,509000.0,3.0,2.0,Prairie Ridge,1355.0,8490.0,2006.0,4.0,376.0
+Mobile/Manufactured Home,11802 199th Ave E,Bonney Lake,474950.0,3.0,2.0,Rhododendron,1176.0,9530.0,2025.0,5.0,404.0
+Single Family Residential,18439 7th Avenue Ct E #37,Spanaway,544950.0,4.0,2.5,Spanaway,2330.0,4088.0,2026.0,5.0,234.0
+Single Family Residential,461 184th Street Ct E #54,Spanaway,585535.0,3.0,2.5,Spanaway,2070.0,4000.0,2026.0,5.0,283.0
+Single Family Residential,12619 136th St E,Puyallup,569950.0,4.0,1.5,South Hill,1656.0,11113.0,1977.0,5.0,344.0
+Single Family Residential,3628 S Sheridan Ave,Tacoma,485000.0,3.0,2.0,Lincoln,1312.0,5720.0,1924.0,5.0,370.0
+Single Family Residential,20402 154th St E #4,Bonney Lake,784900.0,4.0,3.0,Tehaleh,2725.0,5360.0,2025.0,5.0,288.0
+Single Family Residential,1411 47th Ave E,Fife,535000.0,3.0,2.0,Fife,1364.0,9750.0,1950.0,5.0,392.0
+Single Family Residential,11813 204th Ave E,Bonney Lake,495000.0,3.0,2.0,Bonney Lake,1581.0,8740.0,1980.0,6.0,313.0
+Single Family Residential,616 S 63rd St,Tacoma,625000.0,5.0,2.5,Hillsdale,2668.0,7000.0,1948.0,6.0,234.0
+Single Family Residential,14215 179th St E #23,South Hill,849990.0,4.0,3.0,Sunrise,2931.0,11449.0,2025.0,6.0,290.0
+Single Family Residential,724 Tule Lake Rd S,Tacoma,335000.0,3.0,1.5,Parkland,1056.0,7500.0,1962.0,6.0,317.0
+Single Family Residential,1439 E 35th St,Tacoma,519900.0,3.0,2.0,Tacoma,1300.0,6500.0,2001.0,6.0,400.0
+Single Family Residential,13702 74th Avenue Ct E,Puyallup,724995.0,4.0,3.0,Frederickson,2915.0,6158.0,2026.0,6.0,249.0
+Multi-Family (2-4 Unit),10615 - 10617 10th Avenue Ct S,Tacoma,675000.0,4.0,2.5,Tacoma,1920.0,15000.0,1979.0,6.0,352.0
+Multi-Family (2-4 Unit),10603 - 10605 10th Avenue Ct S,Tacoma,625000.0,4.0,2.5,Tacoma,1600.0,15000.0,1979.0,6.0,391.0
+Single Family Residential,12010 Waller Rd E,Tacoma,499000.0,3.0,1.5,Summit,1014.0,10125.0,1964.0,6.0,492.0
+Single Family Residential,5502 82nd Street Ct E,Puyallup,615000.0,3.0,2.5,Puyallup,1925.0,13500.0,1979.0,7.0,319.0
+Single Family Residential,121 177th St E,Spanaway,485000.0,3.0,2.5,Spanaway,1881.0,2576.0,2006.0,7.0,258.0
+Single Family Residential,2010 8th Street Ct SW,Puyallup,647500.0,4.0,2.5,Puyallup,1981.0,11841.0,1989.0,8.0,327.0
+Single Family Residential,19174 133rd St E,Bonney Lake,584990.0,3.0,2.5,Tehaleh,1860.0,3780.0,2021.0,8.0,315.0
+Single Family Residential,2908 N Lawrence St,Tacoma,885900.0,4.0,2.5,North Tacoma,2715.0,1850.0,1917.0,8.0,326.0
+Single Family Residential,4124 128th St E,Tacoma,539000.0,3.0,2.0,Brookdale,2160.0,10000.0,1965.0,9.0,250.0
+Single Family Residential,9610 55th Street Ct W,University Place,885000.0,4.0,2.5,University Place,2762.0,10500.0,1985.0,9.0,320.0
+Single Family Residential,2214 Oak Ct #4,Milton,899990.0,4.0,3.0,Surprise Lake,2639.0,8017.0,2025.0,9.0,341.0
+Single Family Residential,6668 E Roosevelt Ave,Tacoma,489950.0,3.0,2.0,Se Tacoma,1452.0,6240.0,1976.0,9.0,337.0
+Single Family Residential,2211 Oak Ct #10,Milton,949990.0,4.0,3.0,Surprise Lake,2815.0,8188.0,2025.0,9.0,337.0
+Single Family Residential,19510 12th Avenue Ct E,Spanaway,459500.0,3.0,2.5,Bethel,1364.0,4527.0,2004.0,9.0,337.0
+Single Family Residential,2207 Oak Ct #8,Milton,924990.0,4.0,3.0,Surprise Lake,2665.0,8907.0,2025.0,9.0,347.0
+Single Family Residential,5209 S Trafton St,Tacoma,539500.0,4.0,2.5,South Tacoma,2009.0,4750.0,2018.0,9.0,269.0
+Single Family Residential,1324 Hansberry Ave NE,Orting,639999.0,4.0,2.5,Orting,3172.0,7205.0,2006.0,9.0,202.0
+Single Family Residential,21726 48th Avenue Ct E,Spanaway,439999.0,3.0,1.5,Southwood,1080.0,10560.0,1991.0,9.0,407.0
+Single Family Residential,20425 Myrtle Pl E,Bonney Lake,784150.0,4.0,3.0,Tehaleh,2724.0,4867.0,2025.0,9.0,288.0
+Single Family Residential,14513 203rd Ave E,Bonney Lake,599950.0,3.0,2.5,Tehaleh,2016.0,3876.0,2025.0,9.0,298.0
+Single Family Residential,12014 163rd Street Ct E,Puyallup,475950.0,3.0,2.0,Puyallup,1166.0,12075.0,1992.0,9.0,408.0
+Single Family Residential,9432 202nd St E,Graham,575000.0,3.0,2.5,South Hill,2634.0,4637.0,2006.0,9.0,218.0
+Single Family Residential,14518 81st Ave E,Puyallup,529950.0,3.0,2.5,Puyallup,1990.0,7388.0,2002.0,9.0,266.0
+Single Family Residential,612 114th St E,Tacoma,440000.0,3.0,2.5,Parkland,1520.0,2305.0,2005.0,9.0,289.0
+Single Family Residential,21708 133rd Street Ct E,Bonney Lake,529990.0,3.0,2.0,Prairie Ridge,1232.0,8949.0,2022.0,9.0,430.0
+Single Family Residential,10506 Occident St SW,Lakewood,520000.0,4.0,2.0,Lakewood,1200.0,6540.0,1954.0,9.0,433.0
+Single Family Residential,1100 9th Ave,Milton,650000.0,4.0,2.5,Milton,2348.0,4036.0,2006.0,9.0,277.0
+Single Family Residential,8723 126th Street Ct,South Hill,689990.0,5.0,2.5,Puyallup,2577.0,3523.0,2025.0,9.0,268.0
+Single Family Residential,1226 138th St E,Tacoma,530000.0,4.0,2.5,Parkland,1599.0,12107.0,1960.0,9.0,331.0
+Single Family Residential,8807 126th Street Ct,South Hill,674990.0,5.0,2.5,Puyallup,2577.0,3523.0,2025.0,9.0,262.0
+Single Family Residential,9310 210th Ave E,Bonney Lake,475000.0,3.0,2.0,Cedarview,1008.0,9600.0,1994.0,9.0,471.0
+Single Family Residential,513 E 78th St,Tacoma,434500.0,3.0,1.5,Fern Hill,1312.0,5100.0,1971.0,9.0,331.0
+Single Family Residential,6339 Perry Ave SE,Auburn,680000.0,4.0,3.0,Lakeland,2306.0,5500.0,2001.0,9.0,295.0
+Single Family Residential,9040 S Sheridan Ave,Tacoma,450000.0,3.0,1.5,South Tacoma,1365.0,8276.0,1978.0,10.0,330.0
+Single Family Residential,1503 Riddell NE,Orting,550000.0,4.0,2.5,Orting,2488.0,8042.0,2007.0,10.0,221.0
+Single Family Residential,6613 Villa Madera Dr SW,Lakewood,1090000.0,4.0,2.5,Lakewood,3482.0,17450.0,1987.0,10.0,313.0
+Single Family Residential,1825 N Lenore Dr,Tacoma,740000.0,4.0,3.0,North Tacoma,2592.0,9800.0,1969.0,10.0,285.0
+Single Family Residential,18412 18th Ave E,Spanaway,560000.0,4.0,3.0,Spanaway,2349.0,6056.0,2014.0,10.0,238.0
+Single Family Residential,1927 N Fife St,Tacoma,849000.0,4.0,2.0,Tacoma,2242.0,4000.0,1914.0,10.0,379.0
+Townhouse,6726 S Proctor St,Tacoma,300000.0,3.0,2.0,South Tacoma,1429.0,3000.0,2024.0,10.0,210.0
+Single Family Residential,621 153rd Street Ct E,Tacoma,540000.0,3.0,2.0,Tacoma,1472.0,4315.0,2023.0,10.0,367.0
+Townhouse,6730 S Proctor St,Tacoma,300000.0,3.0,2.0,South Tacoma,1429.0,3000.0,2024.0,10.0,210.0
+Single Family Residential,1224 183rd Street Ct E,Spanaway,479900.0,3.0,2.0,Spanaway,1382.0,5000.0,2005.0,10.0,347.0
+Single Family Residential,6424 52nd Ave W,University Place,625000.0,3.0,2.5,Lakewood,1624.0,16988.0,2018.0,10.0,385.0
+Single Family Residential,18004 123rd St E,Bonney Lake,699900.0,3.0,2.0,Falling Water,1874.0,6000.0,2020.0,10.0,373.0
