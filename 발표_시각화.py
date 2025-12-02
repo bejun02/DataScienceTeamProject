@@ -1,7 +1,18 @@
 # -*- coding: utf-8 -*-
 """
+================================================================================
 프로젝트 발표용 시각화 자료 생성
 King County vs Pierce County 부동산 분석
+================================================================================
+- 데이터 출처: Redfin (https://www.redfin.com)
+- 수집 날짜: 2024년 11월
+- 데이터 기간: 2024년 5월 ~ 2024년 10월 (6개월)
+================================================================================
+단위 표기 통일:
+- 가격: 백만 달러 (예: $0.92M, $1.2M)
+- 면적: sqft (제곱피트)
+- 통화: $ (미국 달러)
+================================================================================
 """
 
 import pandas as pd
@@ -9,8 +20,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 from scipy import stats
+from scipy.stats import levene
 from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score, KFold
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+import statsmodels.api as sm
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -47,18 +61,18 @@ pierce_df = preprocess_data('Pierce_County_Sold.csv')
 print(f"King County: {len(king_df)}건, Pierce County: {len(pierce_df)}건")
 
 # ============================================================================
-# Figure 1: 가격 분포 비교 (히스토그램 + 박스플롯)
+# Figure 1: [Q1] 가격 결정 요인 - 가격 분포 비교
 # ============================================================================
-print("\n[Figure 1] 가격 분포 비교 생성 중...")
+print("\n[Figure 1] Q1: 두 카운티의 가격 분포는 어떻게 다른가?")
 
 fig, axes = plt.subplots(2, 2, figsize=(14, 10))
-fig.suptitle('Figure 1: 가격 분포 비교 (King County vs Pierce County)', fontsize=16, fontweight='bold')
+fig.suptitle('[Q1] 두 카운티의 가격 분포는 어떻게 다른가?', fontsize=16, fontweight='bold')
 
 # 1-1. 히스토그램 - King County
 ax1 = axes[0, 0]
 ax1.hist(king_df['PRICE']/1000000, bins=20, color='#2E86AB', edgecolor='white', alpha=0.8)
-ax1.axvline(king_df['PRICE'].mean()/1000000, color='red', linestyle='--', linewidth=2, label=f'평균: ${king_df["PRICE"].mean()/1000000:.2f}M')
-ax1.axvline(king_df['PRICE'].median()/1000000, color='orange', linestyle='--', linewidth=2, label=f'중앙값: ${king_df["PRICE"].median()/1000000:.2f}M')
+ax1.axvline(king_df['PRICE'].mean()/1000000, color='red', linestyle='--', linewidth=2, label=f'평균: $0.92M')
+ax1.axvline(king_df['PRICE'].median()/1000000, color='orange', linestyle='--', linewidth=2, label=f'중앙값: $0.80M')
 ax1.set_xlabel('가격 (백만 달러)', fontsize=11)
 ax1.set_ylabel('빈도', fontsize=11)
 ax1.set_title('King County 가격 분포', fontsize=12, fontweight='bold')
@@ -68,8 +82,8 @@ ax1.grid(axis='y', alpha=0.3)
 # 1-2. 히스토그램 - Pierce County
 ax2 = axes[0, 1]
 ax2.hist(pierce_df['PRICE']/1000000, bins=20, color='#A23B72', edgecolor='white', alpha=0.8)
-ax2.axvline(pierce_df['PRICE'].mean()/1000000, color='red', linestyle='--', linewidth=2, label=f'평균: ${pierce_df["PRICE"].mean()/1000000:.2f}M')
-ax2.axvline(pierce_df['PRICE'].median()/1000000, color='orange', linestyle='--', linewidth=2, label=f'중앙값: ${pierce_df["PRICE"].median()/1000000:.2f}M')
+ax2.axvline(pierce_df['PRICE'].mean()/1000000, color='red', linestyle='--', linewidth=2, label=f'평균: $0.64M')
+ax2.axvline(pierce_df['PRICE'].median()/1000000, color='orange', linestyle='--', linewidth=2, label=f'중앙값: $0.57M')
 ax2.set_xlabel('가격 (백만 달러)', fontsize=11)
 ax2.set_ylabel('빈도', fontsize=11)
 ax2.set_title('Pierce County 가격 분포', fontsize=12, fontweight='bold')
@@ -122,12 +136,12 @@ plt.close()
 print("   저장 완료: 시각화_1_가격분포비교.png")
 
 # ============================================================================
-# Figure 2: 상관관계 분석 (산점도 + 상관계수)
+# Figure 2: [Q1] 가격 결정 요인 - 상관관계 분석
 # ============================================================================
-print("\n[Figure 2] 상관관계 분석 생성 중...")
+print("\n[Figure 2] Q1: 어떤 요인이 가격을 가장 많이 움직이는가?")
 
 fig, axes = plt.subplots(2, 3, figsize=(16, 10))
-fig.suptitle('Figure 2: 가격과 주요 변수 간 상관관계', fontsize=16, fontweight='bold')
+fig.suptitle('[Q1] 어떤 요인이 가격을 가장 많이 움직이는가?', fontsize=16, fontweight='bold')
 
 variables = ['SQUARE FEET', 'BEDS', 'BATHS', 'YEAR BUILT']
 colors_king = '#2E86AB'
@@ -144,9 +158,11 @@ for idx, var in enumerate(variables[:3]):
     r_king = king_df[var].corr(king_df['PRICE'])
     r_pierce = pierce_df[var].corr(pierce_df['PRICE'])
     
-    ax.set_xlabel(var, fontsize=11)
+    # 한글화된 변수명
+    var_korean = {'SQUARE FEET': '면적(sqft)', 'BEDS': '침실 수', 'BATHS': '욕실 수', 'YEAR BUILT': '건축연도'}
+    ax.set_xlabel(var_korean.get(var, var), fontsize=11)
     ax.set_ylabel('가격 (백만 달러)', fontsize=11)
-    ax.set_title(f'{var} vs PRICE\nKing r={r_king:.3f}, Pierce r={r_pierce:.3f}', fontsize=11, fontweight='bold')
+    ax.set_title(f'{var_korean.get(var, var)} vs 가격\nKing r={r_king:.3f}, Pierce r={r_pierce:.3f}', fontsize=11, fontweight='bold')
     ax.legend(loc='upper left')
     ax.grid(alpha=0.3)
 
@@ -156,15 +172,16 @@ ax.scatter(king_df['YEAR BUILT'], king_df['PRICE']/1000000, alpha=0.5, c=colors_
 ax.scatter(pierce_df['YEAR BUILT'], pierce_df['PRICE']/1000000, alpha=0.5, c=colors_pierce, label='Pierce', s=30)
 r_king = king_df['YEAR BUILT'].corr(king_df['PRICE'])
 r_pierce = pierce_df['YEAR BUILT'].corr(pierce_df['PRICE'])
-ax.set_xlabel('YEAR BUILT', fontsize=11)
+ax.set_xlabel('건축연도', fontsize=11)
 ax.set_ylabel('가격 (백만 달러)', fontsize=11)
-ax.set_title(f'YEAR BUILT vs PRICE\nKing r={r_king:.3f}, Pierce r={r_pierce:.3f}', fontsize=11, fontweight='bold')
+ax.set_title(f'건축연도 vs 가격\nKing r={r_king:.3f}, Pierce r={r_pierce:.3f}', fontsize=11, fontweight='bold')
 ax.legend(loc='upper left')
 ax.grid(alpha=0.3)
 
 # 상관계수 히트맵 스타일 바 차트
 ax = axes[1, 1]
 vars_list = ['SQUARE FEET', 'BATHS', 'BEDS', 'YEAR BUILT', '$/SQUARE FEET']
+vars_korean = ['면적(sqft)', '욕실 수', '침실 수', '건축연도', '$/sqft']
 king_corrs = [king_df[v].corr(king_df['PRICE']) for v in vars_list]
 pierce_corrs = [pierce_df[v].corr(pierce_df['PRICE']) for v in vars_list]
 
@@ -173,9 +190,9 @@ width = 0.35
 bars1 = ax.barh(x - width/2, king_corrs, width, label='King County', color=colors_king)
 bars2 = ax.barh(x + width/2, pierce_corrs, width, label='Pierce County', color=colors_pierce)
 ax.set_yticks(x)
-ax.set_yticklabels(vars_list)
+ax.set_yticklabels(vars_korean)
 ax.set_xlabel('상관계수 (Pearson r)', fontsize=11)
-ax.set_title('PRICE와의 상관계수 비교', fontsize=12, fontweight='bold')
+ax.set_title('가격과의 상관계수 비교', fontsize=12, fontweight='bold')
 ax.legend(loc='lower right')
 ax.axvline(0, color='black', linewidth=0.5)
 ax.set_xlim(-0.1, 0.85)
@@ -185,25 +202,26 @@ ax.grid(axis='x', alpha=0.3)
 ax = axes[1, 2]
 ax.axis('off')
 findings = """
-【 상관관계 분석 핵심 발견 】
+【 Q1 답변: 가격 결정 요인 순위 】
 
-1. SQUARE FEET (건물 면적)
-   → 두 카운티 모두 가장 강한 상관관계
-   → King: r = 0.754, Pierce: r = 0.734
-   → "면적이 클수록 가격이 높다"
+★ 1순위: 면적 (SQUARE FEET)
+   → 상관계수 r = 0.73~0.75 (매우 강함)
+   → 두 카운티 모두 동일한 패턴
+   → "면적이 크면 비싸다"
 
-2. BATHS (욕실 수)
-   → 두 번째로 강한 상관관계
-   → King: r = 0.608, Pierce: r = 0.534
+★ 2순위: 욕실 수 (BATHS)
+   → 상관계수 r = 0.53~0.61 (강함)
+   
+★ 3순위: 침실 수 (BEDS)
+   → 상관계수 r = 0.34~0.50 (중간)
 
-3. YEAR BUILT (건축연도)
-   → Pierce에서 더 강한 영향
-   → King: r = 0.131, Pierce: r = 0.229
-   → "Pierce는 신축 프리미엄이 더 큼"
+★ 4순위: 건축연도 (YEAR BUILT)
+   → King r=0.13, Pierce r=0.23
+   → Pierce에서 신축 프리미엄 더 큼
 
 ※ 핵심 결론:
-   건물 크기(SQUARE FEET)가 가격의
-   가장 중요한 결정 요인
+   면적이 가격의 가장 중요한 결정 요인
+   (중요도 75% 이상)
 """
 ax.text(0.1, 0.95, findings, transform=ax.transAxes, fontsize=11,
         verticalalignment='top', fontfamily='Malgun Gothic',
@@ -215,16 +233,16 @@ plt.close()
 print("   저장 완료: 시각화_2_상관관계분석.png")
 
 # ============================================================================
-# Figure 3: 카운티 특성 비교 (경제 기능 차이)
+# Figure 3: [Q2] 카운티 특성 비교 (경제 기능 차이)
 # ============================================================================
-print("\n[Figure 3] 카운티 특성 비교 생성 중...")
+print("\n[Figure 3] Q2: 두 카운티 간 가격 차이의 원인은 무엇인가?")
 
 fig, axes = plt.subplots(2, 3, figsize=(16, 10))
-fig.suptitle('Figure 3: King County vs Pierce County 특성 비교', fontsize=16, fontweight='bold')
+fig.suptitle('[Q2] 두 카운티 간 가격 차이의 원인은 무엇인가?', fontsize=16, fontweight='bold')
 
 # 3-1. 평균 비교 (면적, 침실, 욕실)
 ax = axes[0, 0]
-categories = ['평균 면적\n(sqft)', '평균 침실\n(개)', '평균 욕실\n(개)']
+categories = ['면적(sqft)', '침실 수', '욕실 수']
 king_vals = [king_df['SQUARE FEET'].mean(), king_df['BEDS'].mean()*500, king_df['BATHS'].mean()*500]
 pierce_vals = [pierce_df['SQUARE FEET'].mean(), pierce_df['BEDS'].mean()*500, pierce_df['BATHS'].mean()*500]
 
@@ -235,7 +253,7 @@ ax.bar(x - width/2, [king_df['SQUARE FEET'].mean(), king_df['BEDS'].mean(), king
 ax.bar(x + width/2, [pierce_df['SQUARE FEET'].mean(), pierce_df['BEDS'].mean(), pierce_df['BATHS'].mean()], 
        width, label='Pierce', color='#A23B72')
 ax.set_xticks(x)
-ax.set_xticklabels(['SQUARE FEET', 'BEDS', 'BATHS'])
+ax.set_xticklabels(categories)
 ax.set_title('건물 속성 평균 비교', fontsize=12, fontweight='bold')
 ax.legend()
 # 값 표시
@@ -349,7 +367,8 @@ pierce_df['dist_seattle'] = haversine(pierce_df['LATITUDE'], pierce_df['LONGITUD
 pierce_df['dist_tacoma'] = haversine(pierce_df['LATITUDE'], pierce_df['LONGITUDE'], TACOMA[0], TACOMA[1])
 
 fig, axes = plt.subplots(2, 3, figsize=(16, 10))
-fig.suptitle('Figure 4: 위치(위도/경도) 기반 가격 분석', fontsize=16, fontweight='bold')
+fig.suptitle('[Q3] 위치(위도/경도)가 가격에 얼마나 영향을 미치는가?\n벨뷰 프리미엄 +33.5%, 시애틀 접근성 +15.7%', 
+             fontsize=16, fontweight='bold')
 
 # 4-1. King - 벨뷰 거리 vs 가격
 ax = axes[0, 0]
@@ -469,15 +488,17 @@ plt.close()
 print("   저장 완료: 시각화_4_위치분석.png")
 
 # ============================================================================
-# Figure 5: 선형 회귀 모델링 결과
+# Figure 5: 선형 회귀 모델링 결과 - Q2 핵심 답변
 # ============================================================================
 print("\n[Figure 5] 선형 회귀 모델링 결과 생성 중...")
 
 fig, axes = plt.subplots(2, 3, figsize=(16, 10))
-fig.suptitle('Figure 5: 선형 회귀 모델링 결과', fontsize=16, fontweight='bold')
+fig.suptitle('[Q2] 어떤 변수가 가격을 가장 잘 예측하는가?\n→ 면적(SQUARE FEET)이 1순위 (중요도 75%+)', 
+             fontsize=16, fontweight='bold')
 
 # 모델 학습
 features = ['SQUARE FEET', 'BEDS', 'BATHS', 'YEAR BUILT']
+features_kr = ['면적(sqft)', '침실 수', '욕실 수', '건축연도']
 
 # King County
 X_king = king_df[features]
@@ -546,7 +567,7 @@ width = 0.35
 ax.bar(x - width/2, coef_king, width, label='King', color='#2E86AB')
 ax.bar(x + width/2, coef_pierce, width, label='Pierce', color='#A23B72')
 ax.set_xticks(x)
-ax.set_xticklabels(features, rotation=15)
+ax.set_xticklabels(features_kr, rotation=15)
 ax.set_ylabel('회귀 계수', fontsize=11)
 ax.set_title('회귀 계수 비교', fontsize=12, fontweight='bold')
 ax.legend()
@@ -563,9 +584,9 @@ x = np.arange(len(features))
 ax.barh(x - width/2, importance_king * 100, width, label='King', color='#2E86AB')
 ax.barh(x + width/2, importance_pierce * 100, width, label='Pierce', color='#A23B72')
 ax.set_yticks(x)
-ax.set_yticklabels(features)
+ax.set_yticklabels(features_kr)
 ax.set_xlabel('상대적 중요도 (%)', fontsize=11)
-ax.set_title('특성 중요도 비교', fontsize=12, fontweight='bold')
+ax.set_title('특성 중요도 비교 (면적 75%+)', fontsize=12, fontweight='bold')
 ax.legend()
 ax.grid(axis='x', alpha=0.3)
 
@@ -728,24 +749,29 @@ ax6.pie(sizes, labels=labels, colors=colors, autopct='', startangle=90,
         explode=[0.05, 0.05], textprops={'fontsize': 11, 'fontweight': 'bold'})
 ax6.set_title('모델 R² 비교', fontsize=12, fontweight='bold')
 
-# 6-7. 시사점 & 결론
+# 6-7. 시사점 & 결론 (강화된 결론 + 구체적 투자 수치)
 ax7 = fig.add_subplot(gs[2, :])
 ax7.axis('off')
 conclusion = """
-┌──────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                           【 투자/구매 시사점 】                                            │
-├────────────────────────────────────────────────┬─────────────────────────────────────────────────────────┤
-│              King County 선택                    │               Pierce County 선택                        │
-├────────────────────────────────────────────────┼─────────────────────────────────────────────────────────┤
-│  • 테크 기업 종사자 (통근 시간 최소화)              │  • 넓은 주거 공간 필요 (가족)                             │
-│  • 도시 생활 선호 (다양한 주택 유형)               │  • 예산 제약 (동일 금액으로 더 넓은 집)                     │
-│  • 위치 중심 투자 (벨뷰 인근 프리미엄)              │  • 건물 크기 중심 투자 (면적당 가격 유리)                   │
-└────────────────────────────────────────────────┴─────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                            【 투자/구매 시사점 】                                                 │
+├─────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────┤
+│              King County 선택                     │               Pierce County 선택                              │
+├─────────────────────────────────────────────────┼───────────────────────────────────────────────────────────────┤
+│  • 테크 기업 종사자 (통근 시간 최소화)               │  • 넓은 주거 공간 필요 (가족 단위)                              │
+│  • 도시 생활 선호 (다양한 주택 유형)                │  • 예산 제약 시: 동일 $80만으로 약 200sqft 더 넓은 집           │
+│  • 위치 프리미엄 투자: 벨뷰 10km 이내 평균 $116만   │  • 면적당 가격 유리: $309/sqft (King 대비 $93 절감)            │
+│  • 시애틀 접근성 +15.7% 프리미엄 활용               │  • King 대비 평균 $28만(약 30%) 절약 가능                      │
+└─────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────┘
 
-                    【 핵심 결론 】  건물 크기(SQUARE FEET)가 가격의 가장 중요한 결정 요인이며,
-                                    위치(벨뷰/시애틀 접근성)가 두 번째로 중요한 요인이다.
+          ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+          ┃   📊 핵심 결론: 1순위 = 면적(SQUARE FEET, r=0.73~0.75, 중요도 75%+)                          ┃
+          ┃                 2순위 = 위치(벨뷰 +33.5%, 시애틀 접근성 +15.7%)                              ┃
+          ┃                                                                                            ┃
+          ┃   💡 실제 투자 시사점: Pierce에서 $80만 예산 → King 동일 조건 대비 약 200sqft(≈19m²) 추가 확보 ┃
+          ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 """
-ax7.text(0.5, 0.5, conclusion, transform=ax7.transAxes, fontsize=11,
+ax7.text(0.5, 0.5, conclusion, transform=ax7.transAxes, fontsize=10,
          ha='center', va='center', fontfamily='Malgun Gothic',
          bbox=dict(boxstyle='round', facecolor='#fafafa', edgecolor='#333', linewidth=2))
 
@@ -754,12 +780,13 @@ plt.close()
 print("   저장 완료: 시각화_6_최종결론.png")
 
 # ============================================================================
-# Figure 7: 도시별 가격 비교 (Top 10)
+# Figure 7: 도시별 가격 비교 (Top 10) - Q3 위치 프리미엄 보완
 # ============================================================================
 print("\n[Figure 7] 도시별 가격 비교 생성 중...")
 
 fig, axes = plt.subplots(1, 2, figsize=(16, 8))
-fig.suptitle('Figure 7: 도시별 평균 가격 Top 10', fontsize=16, fontweight='bold')
+fig.suptitle('[Q3 보완] 어떤 도시에서 가격 프리미엄이 높은가?\n(2건 이상 거래된 도시 Top 10)', 
+             fontsize=16, fontweight='bold')
 
 # King County Top 10
 ax = axes[0]
@@ -803,12 +830,13 @@ plt.close()
 print("   저장 완료: 시각화_7_도시별가격.png")
 
 # ============================================================================
-# Figure 8: 가격대별 시장 분포
+# Figure 8: 가격대별 시장 분포 - Q1 가격 분포 보완
 # ============================================================================
 print("\n[Figure 8] 가격대별 시장 분포 생성 중...")
 
 fig, axes = plt.subplots(1, 2, figsize=(14, 6))
-fig.suptitle('Figure 8: 가격대별 시장 분포', fontsize=16, fontweight='bold')
+fig.suptitle('[Q1 보완] 어떤 가격대의 매물이 많은가?\n(가격 구간화 분석: 심층분석 Table 3 기준)', 
+             fontsize=16, fontweight='bold')
 
 # 가격대 구간
 bins = [0, 400000, 600000, 800000, 1000000, 1500000, 2000000, float('inf')]
